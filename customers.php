@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>data</title>
 
-    <!-- <script src="./main.js" defer></script> -->
+    <script src="./main.js" defer></script>
 
 </head>
 <body>
@@ -21,7 +21,7 @@
 <?php
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-var_dump($_POST);
+// var_dump($_POST);
 if (isset($_POST['submit'])) {
     echo 'test';
     
@@ -34,23 +34,26 @@ if (isset($_POST['submit'])) {
     // Check if submit button is clicked
     if(isset($_POST['submit'])){
         $phone = $_POST['phone'];
-        $email  = $_POST['email'];
+        $email = $_POST['email'];
+        $first_name = $_POST['first_name'];
+        $last_name = $_POST['last_name'];
+        $address = $_POST['address'];
         
         // attempt insert query execution
-        $sql = "INSERT INTO customer (phone, email) VALUES ('$phone', '$email')";
+        $sql = "INSERT INTO customer (phone, email, first_name, last_name, address) VALUES ('$phone', '$email', '$first_name', '$last_name', '$address')";
         if(mysqli_query($link, $sql)){
             echo "Records added successfully.";
         } else{
-            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+            echo "ERROR: Could not able to execute $sql. " .mysqli_error($link);
         }
     }
     // close connection
     mysqli_close($link);
-    header('location: customers.php');
+    // header('location: customers.php'); // relaod page, remove for debugging :D
 }
 ?>
 
-    <form action="" method="POST">
+    <form action="" method="POST" onclick="getAddress()">
 
         <label for="phonenumber">
             Telefon nr:
@@ -63,26 +66,45 @@ if (isset($_POST['submit'])) {
         </label>
         <input id="email" type="email" name="email" required>
         <br>
-        
-        <input id="submit" type="submit" value="submit" name="submit">
-    </form>
-        <!-- <label for="name">
+
+        <label for="name">
             fornavn
         </label>
-        <input type="text">
+        <input type="text" name="first_name" required>
         <br>
-        
+
         <label for="name">
             efternavn
         </label>
-        <input type="text">
+        <input type="text" name="last_name" required>
         <br>
         
-        <label for="text">
+        <h4>Adresse</h4>
+
+        <label for="adress">
             adresse
         </label>
-        <input type="text">
-        <br> -->
+        <input type="text" name="address" id="address" required> 
+
+        <label for="husnummer">
+            nr
+        </label>
+        <input type="text" id="nr" required> 
+        
+        <label for="kommune">
+            kommune
+        </label>
+        <input type="text" id="kommune" required> 
+        <br>
+        
+        <input id="submit" type="submit" value="submit" name="submit" >
+    </form>
+
+    <h2 id="apiResult">
+
+    </h2>
+
+
         
 </body>
 
