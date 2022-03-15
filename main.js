@@ -50,3 +50,7 @@ function getAddress() {
 //  .then(data => apiResult.innerHTML = (data[0].adgangsadresse.id)); hjælp til syntaks i api :D
 //  .then(data => apiResult.innerHTML = (data[0].adgangsadresse.valglandsdel.navn)); -||-
 
+
+    // fetch('https://api.dataforsyningen.dk/adresser?vejnavn=Kildemarksvej&postnr=4700&husnr=19')
+    // .then(response => response.json())
+    // .then(data => console.log(data) );

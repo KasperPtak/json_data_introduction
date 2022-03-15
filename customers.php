@@ -18,19 +18,18 @@
    
     
 <?php
-/* Attempt MySQL server connection. Assuming you are running MySQL
-server with default setting (user 'root' with no password) */
+
 var_dump($_POST);
 if (isset($_POST['submit'])) {
     echo 'test';
     
     $link = mysqli_connect("localhost", "root", "", "butik");
-    // Check connection
+    // Tjekker forbindelse
     if($link === false){
         die("ERROR: Could not connect. " . mysqli_connect_error());
     }
     
-    // Check if submit button is clicked
+    // Tjek om posten i html bliver "submitted" 
     if(isset($_POST['submit'])){
         $phone = $_POST['phone'];
         $email = $_POST['email'];
@@ -38,17 +37,18 @@ if (isset($_POST['submit'])) {
         $last_name = $_POST['last_name'];
         $address = $_POST['address'];
         
-        // attempt insert query execution
-        $sql = "INSERT INTO customer (phone, email, first_name, last_name, address) VALUES ('$phone', '$email', '$first_name', '$last_name', '$address')";
+        // indsæt sql ind på MySQL server
+        $sql = "INSERT INTO customer (phone, email, first_name, last_name, address)
+                VALUES ('$phone', '$email', '$first_name', '$last_name', '$address')";
         if(mysqli_query($link, $sql)){
             echo "Records added successfully.";
         } else{
             echo "ERROR: Could not able to execute $sql. " .mysqli_error($link);
         }
     }
-    // close connection
+    
     mysqli_close($link);
-    // header('location: customers.php'); // relaod page, remove for debugging :D
+    header('location: customers.php'); // relaod page, remove for debugging :D
 }
 ?>
 
