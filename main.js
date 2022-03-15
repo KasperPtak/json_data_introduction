@@ -26,14 +26,14 @@ function getAddress() {
         .then(response => response.json())
         .then(data => localStorage.setItem('data', data[0].adressebetegnelse) );
         
-        apiResult.innerHTML = localStorage.getItem('data')
     }
     else {
         alert("Skriv en valid adresse")
-
+        
     }
     
-    // localStorage.clear()    
+    apiResult.innerHTML = localStorage.getItem('data')
+    localStorage.clear()    
 
 }
 
