@@ -21,7 +21,7 @@
 <?php
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-// var_dump($_POST);
+var_dump($_POST);
 if (isset($_POST['submit'])) {
     echo 'test';
     
