@@ -103,8 +103,6 @@ if (isset($_POST['submit'])) {
     <h2 id="apiResult">
 
     </h2>
-
-
         
 </body>
 
