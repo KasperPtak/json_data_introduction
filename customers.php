@@ -13,10 +13,9 @@
 
 <!-- customer info -->
 <h1>
-    customer SAD- ASIAN BOII HIYAAaa
+    customer
 </h1>
-    <!-- CRAAAAAAZZZZZZYYYYYY -->
-
+   
     
 <?php
 /* Attempt MySQL server connection. Assuming you are running MySQL
