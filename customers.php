@@ -53,7 +53,7 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-    <form action="" method="POST" onclick="getAddress()">
+    <form action="" method="POST"">
 
         <label for="phonenumber">
             Telefon nr:
@@ -95,6 +95,7 @@ if (isset($_POST['submit'])) {
             kommune
         </label>
         <input type="text" id="kommune" required> 
+        <button onclick="getAddress()"> Tjek adresse </button>
         <br>
         
         <input id="submit" type="submit" value="submit" name="submit" >

@@ -20,18 +20,21 @@ const kommune = document.getElementById('kommune')
 // }
 
 function getAddress() {
+
     if (address.value != "" && nr.value != "" && kommune.value != "") {
         fetch('https://api.dataforsyningen.dk/adresser?vejnavn='+ address.value +'&postnr=' + kommune.value + '&husnr=' + nr.value)
         .then(response => response.json())
         .then(data => localStorage.setItem('data', data[0].adressebetegnelse) );
+
+        apiResult.innerHTML = localStorage.getItem('data')
     }
     else {
-        console.log("not a valid address kk")
+        alert("Skriv en valid adresse")
 
     }
-        
-    apiResult.innerHTML = localStorage.getItem('data')
     
+    localStorage.clear()    
+
 }
 
 
