@@ -25,7 +25,7 @@ function getAddress() {
         fetch('https://api.dataforsyningen.dk/adresser?vejnavn='+ address.value +'&postnr=' + kommune.value + '&husnr=' + nr.value)
         .then(response => response.json())
         .then(data => localStorage.setItem('data', data[0].adressebetegnelse) );
-
+        
         apiResult.innerHTML = localStorage.getItem('data')
     }
     else {
@@ -33,7 +33,7 @@ function getAddress() {
 
     }
     
-    localStorage.clear()    
+    // localStorage.clear()    
 
 }
 
